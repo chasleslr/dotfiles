@@ -13,6 +13,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 alias config="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias lzd='lazydocker'
+alias lzg='lazygit'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
