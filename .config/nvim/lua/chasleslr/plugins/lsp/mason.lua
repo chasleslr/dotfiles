@@ -10,6 +10,7 @@ return {
 		local mason_tool_installer = require("mason-tool-installer")
 
 		mason.setup({
+			PATH = "append", -- prioritize using env formatter before using system-wide
 			ui = {
 				icons = {
 					package_installed = "✓",
@@ -23,6 +24,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"omnisharp",
+				"pyright",
 			},
 			automatic_installation = true,
 		})
@@ -32,7 +34,7 @@ return {
 				"prettier",
 				"stylua",
 				"isort",
-				"black",
+				-- "black",
 				"csharpier",
 			},
 		})

@@ -14,14 +14,33 @@ return {
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
+			opts.desc = "Show LSP references"
+			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+
 			opts.desc = "Go to declaration"
 			keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
-			opts.desc = "Go to definition"
-			keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			opts.desc = "Show LSP definitions"
+			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
-			opts.desc = "Go to implementation"
-			keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+			opts.desc = "Show LSP implementations"
+			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+			opts.desc = "Show LSP type definitions"
+			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+
+			opts.desc = "Hover"
+			keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+			opts.desc = "Show buffer diagnostics"
+			keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+
+			opts.desc = "Rename"
+			keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+
+			keymap.set("n", "<space>e", vim.diagnostic.open_float)
+			keymap.set("n", "[d", vim.diagnostic.goto_prev)
+			keymap.set("n", "]d", vim.diagnostic.goto_next)
 		end
 
 		lspconfig["lua_ls"].setup({
@@ -45,6 +64,10 @@ return {
 		lspconfig["omnisharp"].setup({
 			on_attach = on_attach,
 			cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+		})
+
+		lspconfig["pyright"].setup({
+			on_attach = on_attach,
 		})
 	end,
 }
