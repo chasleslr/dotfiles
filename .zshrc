@@ -13,6 +13,7 @@ plugins=(
     dotenv
     gcloud
     git
+    poetry
     zsh-autosuggestions
   )
 
@@ -22,6 +23,11 @@ source $ZSH/oh-my-zsh.sh
 alias config="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias lzd='lazydocker'
 alias lzg='lazygit'
+alias dc='docker compose'
+alias kc='kubectl'
+alias gm="git machete"
+alias ls="eza --color=always --long --git --icons=always --no-time --no-user --no-permissions"
+alias cd="z"
 
 # nvim
 export NVM_DIR="$HOME/.nvm"
@@ -35,7 +41,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
-pyenv virtualenvwrapper
+# pyenv virtualenvwrapper
 
 # gcloud
 if [ -f '/Users/charleslariviere/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/charleslariviere/google-cloud-sdk/path.zsh.inc'; fi
@@ -56,5 +62,12 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# dotenv
-ZSH_DOTENV_DISALLOWED_LIST='/Users/charleslariviere/workspace/numbox'
+
+# GPG
+export GPG_TTY=$(tty)
+
+# Created by `pipx` on 2024-06-18 14:45:52
+export PATH="$PATH:/Users/charleslariviere/.local/bin"
+
+# ---- Zoxide (better cd) ----
+eval "$(zoxide init zsh)"

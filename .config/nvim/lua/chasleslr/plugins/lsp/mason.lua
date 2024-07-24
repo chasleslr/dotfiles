@@ -25,6 +25,10 @@ return {
 				"lua_ls",
 				"omnisharp",
 				"pyright",
+				"yamlls",
+				"jsonls",
+				"tsserver",
+				"gopls",
 			},
 			automatic_installation = true,
 		})
@@ -34,8 +38,10 @@ return {
 				"prettier",
 				"stylua",
 				"isort",
-				-- "black",
-				"csharpier",
+				-- "black", -- look into how to override black version per project
+				-- "csharpier",
+				"jinja-lsp",
+				"ruff-lsp",
 			},
 		})
 	end,

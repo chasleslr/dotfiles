@@ -13,7 +13,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "ruff_fix", "ruff_format" },
 			},
 			format_on_save = function(bufnr)
 				-- Disable with a global or buffer-local variable
